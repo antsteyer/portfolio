@@ -7,8 +7,10 @@
     </v-app-bar>
 
     <v-main>
-      <v-container fluid style="max-width: 1300px">
-        <router-view></router-view>
+      <v-container fluid style="max-width: 1300px" class="pa-8">
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
       </v-container>
     </v-main>
 
@@ -40,5 +42,13 @@ export default Vue.extend({
 <style lang="scss">
 a {
   text-decoration: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
