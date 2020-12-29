@@ -1,53 +1,36 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+  <v-app app>
+    <v-app-bar app elevate-on-scroll color="white">
+      <v-toolbar-title>Antoine Steyer</v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <NavItems></NavItems>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <v-container fluid style="max-width: 1300px" class="pa-8">
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
+      </v-container>
     </v-main>
+
+    <v-footer app padless>
+      <v-col class="text-center" cols="12">
+        © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import NavItems from "@/components/header/NavItems.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld
+    NavItems
   },
 
   data: () => ({
@@ -55,3 +38,17 @@ export default Vue.extend({
   })
 });
 </script>
+
+<style lang="scss">
+a {
+  text-decoration: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
