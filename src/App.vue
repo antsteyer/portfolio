@@ -1,5 +1,5 @@
 <template>
-  <v-app app>
+  <v-app app id="app">
     <v-app-bar app elevate-on-scroll color="white">
       <v-btn text id="app-title" to="/">ANT</v-btn>
       <v-spacer></v-spacer>
@@ -15,7 +15,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-container fluid style="max-width: 1300px" class="pa-8">
+      <v-container fluid style="max-width: 1300px" class="pa-8 mb-10">
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -49,16 +49,42 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-a {
-  text-decoration: none;
-}
+#app {
+  a {
+    text-decoration: none;
+  }
 
-#app-title {
-  font-size: large;
-  &::before {
-    opacity: 1;
+  #app-title {
+    font-size: large;
+
+    &::before {
+      opacity: 1;
+      background: aquamarine;
+      clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
+    }
+  }
+
+  footer.v-footer.theme--light {
     background: aquamarine;
-    clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
+  }
+
+  .v-card__title {
+    word-break: break-word;
+  }
+
+  #formation,
+  #experience {
+    .v-timeline:before {
+      left: calc(50% - 5px);
+    }
+  }
+
+  .v-timeline:before {
+    width: 10px;
+  }
+
+  .theme--light.v-timeline:before {
+    background: aquamarine;
   }
 }
 
