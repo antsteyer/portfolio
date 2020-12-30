@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$vuetify.breakpoint.mdAndUp">
+  <div :class="{ 'd-flex flex-column': $vuetify.breakpoint.smAndDown }">
     <v-btn
       v-for="item in items"
       :key="item.label"
@@ -9,25 +9,6 @@
       >{{ item.label }}</v-btn
     >
   </div>
-  <v-menu offset-y v-else>
-    <template v-slot:activator="{ on, attrs }">
-      <v-app-bar-nav-icon
-        v-if="$vuetify.breakpoint.smAndDown"
-        v-bind="attrs"
-        v-on="on"
-      ></v-app-bar-nav-icon>
-    </template>
-    <div class="d-flex flex-column">
-      <v-btn
-        v-for="item in items"
-        :key="item.label"
-        class="ma-2"
-        :to="item.routerLink"
-        text
-        >{{ item.label }}</v-btn
-      >
-    </div>
-  </v-menu>
 </template>
 
 <script lang="ts">
@@ -39,14 +20,30 @@ export default Vue.extend({
   data: () => ({
     items: [
       {
-        label: "Home",
-        routerLink: "/home"
+        label: "Formation",
+        routerLink: "/formation"
+      },
+      {
+        label: "Expériences",
+        routerLink: "/experiences"
       },
       {
         label: "Contact",
-        routerLink: "/Contact"
+        routerLink: "/contact"
       }
     ]
   })
 });
 </script>
+
+<style lang="scss" scoped>
+a {
+  &::before {
+    transition: 0.4s cubic-bezier(1, -1, 0, 2);
+    clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
+  }
+  &:hover::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+</style>
