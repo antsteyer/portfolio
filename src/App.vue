@@ -1,16 +1,22 @@
 <template>
   <v-app app>
     <v-app-bar app elevate-on-scroll color="white">
-      <v-toolbar-title>Antoine Steyer</v-toolbar-title>
+      <v-btn text id="app-title" to="/">ANT</v-btn>
       <v-spacer></v-spacer>
-      <NavItems></NavItems>
+      <NavItems v-if="$vuetify.breakpoint.mdAndUp"></NavItems>
+      <v-app-bar-nav-icon
+        v-else
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
+
+    <v-navigation-drawer app v-model="drawer" absolute right temporary>
+      <NavItems></NavItems>
+    </v-navigation-drawer>
 
     <v-main>
       <v-container fluid style="max-width: 1300px" class="pa-8">
-        <transition name="fade">
-          <router-view></router-view>
-        </transition>
+        <router-view></router-view>
       </v-container>
     </v-main>
 
@@ -28,13 +34,16 @@ import NavItems from "@/components/header/NavItems.vue";
 
 export default Vue.extend({
   name: "App",
+  metaInfo: {
+    title: "Antoine Steyer"
+  },
 
   components: {
     NavItems
   },
 
   data: () => ({
-    //
+    drawer: false
   })
 });
 </script>
@@ -44,11 +53,12 @@ a {
   text-decoration: none;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+#app-title {
+  font-size: large;
+  &::before {
+    opacity: 1;
+    background: aquamarine;
+    clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
+  }
 }
 </style>
