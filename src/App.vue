@@ -61,4 +61,8 @@ a {
     clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
   }
 }
+
+footer.v-footer.theme--light {
+  background: aquamarine;
+}
 </style>
