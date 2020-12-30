@@ -20,7 +20,7 @@
       </v-container>
     </v-main>
 
-    <v-footer app padless>
+    <v-footer padless absolute>
       <v-col class="text-center" cols="12">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
       </v-col>
