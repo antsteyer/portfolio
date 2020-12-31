@@ -1,6 +1,6 @@
 <template>
   <div id="formation">
-    <h1>Laisse moi te raconter une histoire ‍🎓</h1>
+    <h1>C'est une longue histoire ‍🎓</h1>
 
     <v-timeline class="mt-10">
       <v-timeline-item
