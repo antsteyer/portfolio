@@ -16,7 +16,11 @@
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 text
-                :color="link.color"
+                :color="
+                  $vuetify.theme.dark && link.darkModeColor
+                    ? link.darkModeColor
+                    : link.color
+                "
                 :aria-label="'Accéder à ' + link.label"
                 v-bind="attrs"
                 v-on="on"
@@ -40,6 +44,7 @@ interface ContactLink {
   label: string;
   icon: string;
   color: string;
+  darkModeColor?: string;
   link: string;
   funnyCatchPhrase: string;
 }
@@ -75,6 +80,7 @@ export default Vue.extend({
         label: "Github",
         icon: "mdi-github",
         color: "#24292e",
+        darkModeColor: "white",
         link: "https://github.com/antsteyer",
         funnyCatchPhrase: "Pas très rempli, mais appétissant !"
       }
