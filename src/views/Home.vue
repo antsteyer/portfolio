@@ -19,7 +19,7 @@
       >
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
-            <v-avatar color="#7FFFD4" size="56">
+            <v-avatar color="primary" size="56">
               <v-icon large color="black">mdi-binoculars</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Curieux</span>
@@ -32,7 +32,7 @@
         </v-col>
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
-            <v-avatar color="#7FFFD4" size="56">
+            <v-avatar color="primary" size="56">
               <v-icon large color="black">mdi-file-tree</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Rigoureux</span>
@@ -45,7 +45,7 @@
         </v-col>
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
-            <v-avatar color="#7FFFD4" size="56">
+            <v-avatar color="primary" size="56">
               <v-icon large color="black">mdi-flask</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Persévérant</span>

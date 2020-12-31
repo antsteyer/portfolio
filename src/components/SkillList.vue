@@ -20,7 +20,7 @@
                 :size="120"
                 :width="8"
                 :value="skill.percent"
-                color="#7FFFD4"
+                color="primary"
                 class="ma-6"
               >
                 <div v-if="!hover" class="d-flex flex-column text-center">
@@ -38,7 +38,7 @@
                   <v-overlay
                     v-if="hover"
                     absolute
-                    color="#7FFFD4"
+                    color="primary"
                     style="border-radius: 50%"
                   >
                     <span class="black--text">{{ skill.percent }}%</span>

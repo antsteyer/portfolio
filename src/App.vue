@@ -1,7 +1,7 @@
 <template>
   <v-app app id="app">
     <v-app-bar app elevate-on-scroll>
-      <v-btn text id="app-title" to="/">ANT</v-btn>
+      <v-btn text id="app-title" color="primary" to="/">ANT</v-btn>
       <v-spacer></v-spacer>
 
       <NavItems v-if="$vuetify.breakpoint.mdAndUp"></NavItems>
@@ -17,7 +17,7 @@
       ></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" absolute right temporary>
+    <v-navigation-drawer app v-model="drawer" bottom temporary>
       <NavItems></NavItems>
     </v-navigation-drawer>
 
@@ -27,13 +27,13 @@
       </v-container>
     </v-main>
 
-    <v-footer padless absolute>
-      <v-col class="text-center" cols="12">
+    <v-footer padless absolute color="primary">
+      <v-col class="text-center" cols="12" md="6">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
-        <span class="ml-10"
-          >Made with <a href="https://github.com/vuejs/vue">Vue</a> and
-          <a href="https://github.com/vuetifyjs/vuetify">Vuetify</a></span
-        >
+      </v-col>
+      <v-col class="text-center" cols="12" md="6">
+        Made with <a href="https://github.com/vuejs/vue">Vue</a> and
+        <a href="https://github.com/vuetifyjs/vuetify">Vuetify</a>
       </v-col>
     </v-footer>
   </v-app>
@@ -62,6 +62,7 @@ export default Vue.extend({
 <style lang="scss">
 #app {
   a {
+    color: #3366bb;
     text-decoration: none;
     &::before {
       transition: 0.4s cubic-bezier(1, -1, 0, 2);
@@ -86,9 +87,10 @@ export default Vue.extend({
     font-size: large;
 
     &.theme--light {
+      color: black !important;
       &::before {
+        color: var(--v-primary-base) !important;
         opacity: 1;
-        background: aquamarine;
         clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
       }
 
@@ -102,7 +104,6 @@ export default Vue.extend({
     }
 
     &.theme--dark {
-      color: aquamarine;
       &::before {
         clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
       }
@@ -111,10 +112,6 @@ export default Vue.extend({
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
     }
-  }
-
-  footer.v-footer.theme--light {
-    background: aquamarine;
   }
 
   .v-card__title {
@@ -133,11 +130,10 @@ export default Vue.extend({
   }
 
   .v-timeline:before {
-    background: aquamarine;
+    background: var(--v-primary-base);
   }
 
   footer.v-footer {
-    background: aquamarine;
     color: black;
   }
 }
