@@ -62,18 +62,7 @@ export default Vue.extend({
 <style lang="scss">
 #app {
   a {
-    color: #3366bb;
     text-decoration: none;
-    &::before {
-      transition: 0.4s cubic-bezier(1, -1, 0, 2);
-      clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
-    }
-    &:hover::before {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
-
-  a {
     &::before {
       transition: 0.4s cubic-bezier(1, -1, 0, 2);
       clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
@@ -135,6 +124,10 @@ export default Vue.extend({
 
   footer.v-footer {
     color: black;
+
+    a {
+      color: #3366bb;
+    }
   }
 }
 </style>

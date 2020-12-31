@@ -82,7 +82,7 @@ export default Vue.extend({
         color: "#24292e",
         darkModeColor: "white",
         link: "https://github.com/antsteyer",
-        funnyCatchPhrase: "Pas très rempli, mais appétissant !"
+        funnyCatchPhrase: "Mon humble contribution à l'open-source"
       }
     ] as ContactLink[]
   })
