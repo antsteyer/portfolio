@@ -12,33 +12,43 @@
       </v-chip-group>
     </div>
     <div class="mt-5">
-      <v-hover v-for="skill in skills" :key="skill.label">
-        <template v-slot:default="{ hover }">
-          <v-progress-circular
-            :size="120"
-            :width="8"
-            :value="skill.percent"
-            color="#7FFFD4"
-            class="ma-6"
-            v-show="skill.type === skillType || !skillType"
-          >
-            <div v-if="!hover" class="d-flex flex-column text-center">
-              <v-icon v-if="skill.icon" color="black">{{ skill.icon }}</v-icon>
-              <span class="black--text">{{ skill.label }}</span>
-            </div>
-            <v-fade-transition>
-              <v-overlay
-                v-if="hover"
-                absolute
+      <v-scroll-x-transition group tag="div">
+        <template v-for="skill in filteredSkills">
+          <v-hover :key="skill.label">
+            <template v-slot:default="{ hover }">
+              <v-progress-circular
+                :size="120"
+                :width="8"
+                :value="skill.percent"
                 color="#7FFFD4"
-                style="border-radius: 50%"
+                class="ma-6"
               >
-                <span class="black--text">{{ skill.percent }}%</span>
-              </v-overlay>
-            </v-fade-transition>
-          </v-progress-circular>
+                <div v-if="!hover" class="d-flex flex-column text-center">
+                  <v-icon v-if="skill.icon">{{ skill.icon }}</v-icon>
+                  <div
+                    :class="{
+                      'black--text': !$vuetify.theme.dark,
+                      'white--text': $vuetify.theme.dark
+                    }"
+                  >
+                    {{ skill.label }}
+                  </div>
+                </div>
+                <v-fade-transition>
+                  <v-overlay
+                    v-if="hover"
+                    absolute
+                    color="#7FFFD4"
+                    style="border-radius: 50%"
+                  >
+                    <span class="black--text">{{ skill.percent }}%</span>
+                  </v-overlay>
+                </v-fade-transition>
+              </v-progress-circular>
+            </template>
+          </v-hover>
         </template>
-      </v-hover>
+      </v-scroll-x-transition>
     </div>
   </div>
 </template>
@@ -58,6 +68,24 @@ export default Vue.extend({
   data: () => ({
     skillType: null,
     skills: [
+      {
+        label: "Typescript",
+        icon: "mdi-language-typescript",
+        percent: 90,
+        type: "Front"
+      },
+      {
+        label: "CSS",
+        icon: "mdi-language-css3",
+        percent: 80,
+        type: "Front"
+      },
+      {
+        label: "HTML",
+        icon: "mdi-language-html5",
+        percent: 90,
+        type: "Front"
+      },
       {
         label: "VueJS",
         icon: "mdi-vuejs",
@@ -93,9 +121,22 @@ export default Vue.extend({
         icon: "mdi-leaf",
         percent: 50,
         type: "Back"
+      },
+      {
+        label: "Python",
+        icon: "mdi-language-python",
+        percent: 20,
+        type: "Back"
       }
     ] as Skill[]
-  })
+  }),
+  computed: {
+    filteredSkills: function() {
+      return this.skills.filter(
+        skill => skill.type === this.skillType || !this.skillType
+      );
+    }
+  }
 });
 </script>
 
