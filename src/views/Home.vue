@@ -1,10 +1,17 @@
 <template>
   <div class="home">
     <h1>Salut, moi c'est Antoine 👦🏻</h1>
+
     <div class="my-10 text-body-1">
       <p>
+        J'ai {{ age }} ans, je réside actuellement dans la magnifique ville de
+        Lyon, mais je suis originaire de Savoie.
+      </p>
+      <p>
         De formation Ingénieur en Interfaces Homme-Machine, je travaille
-        principalement en développement Front-End.
+        principalement en développement Front-End. J'accorde toute son
+        importance à l'expérience utilisateur, pour quelle soit intuitive,
+        dynamique et efficace.
       </p>
 
       <div
@@ -61,8 +68,24 @@
 import Vue from "vue";
 import SkillList from "@/components/SkillList.vue";
 
+const BIRTHDAY = new Date("1995-03-05");
+
 export default Vue.extend({
   name: "Home",
-  components: { SkillList }
+  components: { SkillList },
+  computed: {
+    age: function() {
+      const today = new Date();
+      const birthDate = BIRTHDAY;
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      return age;
+    }
+  }
 });
 </script>
