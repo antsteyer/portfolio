@@ -54,6 +54,16 @@ export default Vue.extend({
     text-decoration: none;
   }
 
+  a {
+    &::before {
+      transition: 0.4s cubic-bezier(1, -1, 0, 2);
+      clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
+    }
+    &:hover::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
   #app-title {
     font-size: large;
 
@@ -61,6 +71,10 @@ export default Vue.extend({
       opacity: 1;
       background: aquamarine;
       clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
+    }
+
+    &:hover::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 
