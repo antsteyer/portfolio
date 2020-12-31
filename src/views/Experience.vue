@@ -28,7 +28,7 @@
           <v-card-text v-html="experienceItem.description"></v-card-text>
           <v-divider></v-divider>
           <v-card-actions v-if="experienceItem.technos">
-            <v-chip-group column>
+            <v-chip-group column transition="scroll-x-transition">
               <v-chip
                 v-for="(tech, iTech) in experienceItem.technos"
                 :key="iTech + tech"
@@ -77,7 +77,7 @@ export default Vue.extend({
         description:
           "Concevoir et implémenter l'interface utilisateur d'un outil de Business Intelligence.",
         image: "https://avatars1.githubusercontent.com/u/34623894?s=200&v=4",
-        technos: ["VueJS", "Vuetify", "Typescript", "Graphql", "NextJs"]
+        technos: ["VueJS", "Vuetify", "Typescript", "Graphql", "NestJs"]
       },
       {
         label: "Stage",
