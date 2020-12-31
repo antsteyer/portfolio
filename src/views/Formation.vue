@@ -2,7 +2,7 @@
   <div id="formation">
     <h1>C'est une longue histoire ‍🎓</h1>
 
-    <v-timeline class="mt-10">
+    <v-timeline class="mt-10" :dense="$vuetify.breakpoint.smAndDown">
       <v-timeline-item
         v-for="(formationItem, index) in formations"
         :key="index + formationItem.label"
