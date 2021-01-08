@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5">
+  <div class="skill-list my-5">
     <div class="d-flex align-center justify-start">
       <span>Filtrer par : </span>
       <v-chip-group v-model="skillType" color="primary">
@@ -139,13 +139,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style scoped lang="scss">
-.v-chip-group .v-chip--active {
-  background-color: aquamarine;
-  color: black;
-  &::before {
-    opacity: 0;
-  }
-}
-</style>

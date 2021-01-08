@@ -12,17 +12,24 @@
         >mdi-theme-light-dark</v-icon
       >
       <v-app-bar-nav-icon
+        aria-label="Ouvrir le menu de navigation"
+        title="Ouvrir le menu de navigation"
         v-if="!$vuetify.breakpoint.mdAndUp"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" bottom temporary>
+    <v-navigation-drawer
+      v-if="!$vuetify.breakpoint.mdAndUp"
+      app
+      v-model="drawer"
+      floating
+    >
       <NavItems></NavItems>
     </v-navigation-drawer>
 
     <v-main>
-      <v-container fluid style="max-width: 1300px" class="pa-8 mb-10">
+      <v-container fluid style="max-width: 1300px" class="pa-8 mb-16">
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -58,76 +65,3 @@ export default Vue.extend({
   })
 });
 </script>
-
-<style lang="scss">
-#app {
-  a {
-    text-decoration: none;
-    &::before {
-      transition: 0.4s cubic-bezier(1, -1, 0, 2);
-      clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
-    }
-    &:hover::before {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
-
-  #app-title {
-    font-size: large;
-
-    &.theme--light {
-      color: black !important;
-      &::before {
-        color: var(--v-primary-base) !important;
-        opacity: 1;
-        clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
-      }
-
-      &:hover::before {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-    }
-
-    &:hover::before {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    &.theme--dark {
-      &::before {
-        clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
-      }
-
-      &:hover::before {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-    }
-  }
-
-  .v-card__title {
-    word-break: break-word;
-  }
-
-  #formation,
-  #experience {
-    .v-timeline:before {
-      left: calc(50% - 5px);
-    }
-  }
-
-  .v-timeline:before {
-    width: 10px;
-  }
-
-  .v-timeline:before {
-    background: var(--v-primary-base);
-  }
-
-  footer.v-footer {
-    color: black;
-
-    a {
-      color: #3366bb;
-    }
-  }
-}
-</style>

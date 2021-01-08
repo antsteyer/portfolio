@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
+import "@/theme/main.scss";
 import vuetify from "@/plugins/vuetify";
 import VueMeta from "vue-meta";
 

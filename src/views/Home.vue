@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <h1>Salut, moi c'est Antoine 👦🏻</h1>
 
     <div class="my-10 text-body-1">

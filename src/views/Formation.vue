@@ -74,23 +74,3 @@ export default Vue.extend({
   })
 });
 </script>
-
-<style lang="scss" scoped>
-.v-card__title {
-  word-break: break-word;
-}
-
-#formation {
-  .v-timeline:before {
-    left: calc(50% - 5px);
-  }
-}
-
-.v-timeline:before {
-  width: 10px;
-}
-
-.theme--light.v-timeline:before {
-  background: aquamarine;
-}
-</style>
