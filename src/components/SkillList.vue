@@ -95,7 +95,7 @@ export default Vue.extend({
       {
         label: "Angular",
         icon: "mdi-angular",
-        percent: 80,
+        percent: 90,
         type: "Front"
       },
       {
