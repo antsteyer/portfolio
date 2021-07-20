@@ -58,7 +58,7 @@ export default Vue.extend({
       {
         year: "2013-2015",
         location: "Polytech' Annecy Chambéry",
-        label: "PeiP - Option Information",
+        label: "PeiP - Option Informatique",
         description: "Parcours des écoles d'ingénieurs Polytech.",
         image:
           "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa-%2FAN66SAwGLGtyguZTlbiaMqRaWB38rDfR-OUrb_rNDA%3Ds900-mo-c-c0xffffffff-rj-k-no&f=1&nofb=1"
