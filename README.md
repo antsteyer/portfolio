@@ -1,26 +1,42 @@
-# my-portfolio
+# Nuxt 3 Minimal Starter
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/edfa16f7-29d7-4c87-ba9c-8a4e7f5b6b84/deploy-status)](https://app.netlify.com/sites/antoinesteyer/deploys)
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Project setup
-```
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+# yarn
 yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install --shamefully-hoist
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
 ```
 
-### Lints and fixes files
-```
-yarn lint
+Locally preview production build:
+
+```bash
+npm run preview
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
