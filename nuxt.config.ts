@@ -13,7 +13,15 @@ export default defineNuxtConfig({
             redirectOn: 'root',
         },
         vueI18n: {
-            fallbackLocale: 'fr'
+            fallbackLocale: 'fr',
+            messages: {
+                en: {
+                  welcome: 'Welcome'
+                },
+                fr: {
+                  welcome: 'Bienvenue'
+                },
+            }
         }
     }
 })
