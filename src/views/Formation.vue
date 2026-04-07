@@ -2,11 +2,11 @@
   <div id="formation">
     <h1>C'est une longue histoire ‍🎓</h1>
 
-    <v-timeline class="mt-10" :dense="$vuetify.breakpoint.smAndDown">
+    <v-timeline class="mt-10" :density="display.smAndDown.value ? 'compact' : 'default'" side="end">
       <v-timeline-item
         v-for="(formationItem, index) in formations"
         :key="index + formationItem.label"
-        large
+        size="large"
       >
         <template v-slot:icon v-if="formationItem.image">
           <v-avatar>
@@ -17,11 +17,11 @@
           <span class="font-weight-bold">{{ formationItem.year }}</span>
         </template>
         <v-card class="elevation-2">
-          <v-card-title class="headline">
+          <v-card-title class="text-h5">
             {{ formationItem.label }}
           </v-card-title>
           <v-card-subtitle>
-            <v-icon small>mdi-map-marker</v-icon>
+            <v-icon size="small" icon="mdi-map-marker"></v-icon>
             {{ formationItem.location }}
           </v-card-subtitle>
           <v-card-text v-html="formationItem.description"></v-card-text>
@@ -32,7 +32,8 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
+import { useDisplay } from "vuetify";
 
 interface FormationItem {
   image?: string;
@@ -42,8 +43,11 @@ interface FormationItem {
   location: string;
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: "Formation",
+  setup() {
+    return { display: useDisplay() };
+  },
   data: () => ({
     formations: [
       {

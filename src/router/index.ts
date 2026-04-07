@@ -1,37 +1,26 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
-Vue.use(VueRouter);
-
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
+const routes: RouteRecordRaw[] = [
+  { path: "/", name: "Home", component: Home },
   {
     path: "/formation",
     name: "Formation",
-    component: () =>
-      import(/* webpackChunkName: "formation" */ "../views/Formation.vue")
+    component: () => import("../views/Formation.vue")
   },
   {
     path: "/experiences",
     name: "Experience",
-    component: () =>
-      import(/* webpackChunkName: "experience" */ "../views/Experience.vue")
+    component: () => import("../views/Experience.vue")
   },
   {
     path: "/contact",
     name: "Contact",
-    component: () =>
-      import(/* webpackChunkName: "contact" */ "../views/Contact.vue")
+    component: () => import("../views/Contact.vue")
   }
 ];
 
-const router = new VueRouter({
+export default createRouter({
+  history: createWebHistory(),
   routes
 });
-
-export default router;

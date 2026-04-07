@@ -1,27 +1,26 @@
 <template>
-  <v-app app id="app">
-    <v-app-bar app elevate-on-scroll>
-      <v-btn text id="app-title" color="primary" to="/">ANT</v-btn>
+  <v-app id="app">
+    <v-app-bar elevate-on-scroll>
+      <v-btn variant="text" id="app-title" color="primary" to="/">ANT</v-btn>
       <v-spacer></v-spacer>
 
-      <NavItems v-if="$vuetify.breakpoint.mdAndUp"></NavItems>
+      <NavItems v-if="display.mdAndUp.value"></NavItems>
       <v-icon
         aria-label="Changer le thème"
         title="Changer le thème"
-        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-        >mdi-theme-light-dark</v-icon
-      >
+        @click="toggleTheme"
+        icon="mdi-theme-light-dark"
+      ></v-icon>
       <v-app-bar-nav-icon
         aria-label="Ouvrir le menu de navigation"
         title="Ouvrir le menu de navigation"
-        v-if="!$vuetify.breakpoint.mdAndUp"
+        v-if="!display.mdAndUp.value"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
     </v-app-bar>
 
     <v-navigation-drawer
-      v-if="!$vuetify.breakpoint.mdAndUp"
-      app
+      v-if="!display.mdAndUp.value"
       v-model="drawer"
       floating
     >
@@ -34,7 +33,7 @@
       </v-container>
     </v-main>
 
-    <v-footer padless absolute color="primary">
+    <v-footer absolute color="primary">
       <v-col class="text-center" cols="12" md="6">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
       </v-col>
@@ -47,21 +46,25 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent, ref } from "vue";
+import { useDisplay, useTheme } from "vuetify";
 import NavItems from "@/components/header/NavItems.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "App",
-  metaInfo: {
-    title: "Antoine Steyer"
+  components: { NavItems },
+  setup() {
+    const display = useDisplay();
+    const theme = useTheme();
+    const drawer = ref(false);
+    const toggleTheme = () => {
+      theme.global.name.value =
+        theme.global.current.value.dark ? "light" : "dark";
+    };
+    return { display, drawer, toggleTheme };
   },
-
-  components: {
-    NavItems
-  },
-
-  data: () => ({
-    drawer: false
-  })
+  mounted() {
+    document.title = "Antoine Steyer";
+  }
 });
 </script>

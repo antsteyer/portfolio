@@ -1,36 +1,30 @@
 <template>
-  <div :class="{ 'd-flex flex-column': $vuetify.breakpoint.smAndDown }">
+  <div :class="{ 'd-flex flex-column': display.smAndDown.value }">
     <v-btn
       v-for="item in items"
       :key="item.label"
       class="ma-2"
       :to="item.routerLink"
-      text
+      variant="text"
       >{{ item.label }}</v-btn
     >
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
+import { useDisplay } from "vuetify";
 
-export default Vue.extend({
+export default defineComponent({
   name: "NavItems",
-  components: {},
+  setup() {
+    return { display: useDisplay() };
+  },
   data: () => ({
     items: [
-      {
-        label: "Formation",
-        routerLink: "/formation"
-      },
-      {
-        label: "Expériences",
-        routerLink: "/experiences"
-      },
-      {
-        label: "Contact",
-        routerLink: "/contact"
-      }
+      { label: "Formation", routerLink: "/formation" },
+      { label: "Expériences", routerLink: "/experiences" },
+      { label: "Contact", routerLink: "/contact" }
     ]
   })
 });

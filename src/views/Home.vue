@@ -20,7 +20,7 @@
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
             <v-avatar color="primary" size="56">
-              <v-icon large color="black">mdi-binoculars</v-icon>
+              <v-icon size="large" color="black">mdi-binoculars</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Curieux</span>
             <p>
@@ -33,7 +33,7 @@
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
             <v-avatar color="primary" size="56">
-              <v-icon large color="black">mdi-file-tree</v-icon>
+              <v-icon size="large" color="black">mdi-file-tree</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Rigoureux</span>
             <p>
@@ -46,7 +46,7 @@
         <v-col cols="12" md="4">
           <div class="d-flex flex-column align-center pa-8 text-center">
             <v-avatar color="primary" size="56">
-              <v-icon large color="black">mdi-flask</v-icon>
+              <v-icon size="large" color="black">mdi-flask</v-icon>
             </v-avatar>
             <span class="my-4 font-weight-bold">Persévérant</span>
             <p>
@@ -65,12 +65,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import SkillList from "@/components/SkillList.vue";
 
 const BIRTHDAY = new Date("1995-03-05");
 
-export default Vue.extend({
+export default defineComponent({
   name: "Home",
   components: { SkillList },
   computed: {

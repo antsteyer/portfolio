@@ -12,24 +12,22 @@
         class="d-flex flex-column flex-md-row flex-sm-column justify-center align-center"
       >
         <a v-for="link in links" :key="link.label" :href="link.link">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
+          <v-tooltip location="bottom" :text="link.funnyCatchPhrase">
+            <template v-slot:activator="{ props }">
               <v-btn
-                text
+                variant="text"
                 :color="
-                  $vuetify.theme.dark && link.darkModeColor
+                  theme.global.current.value.dark && link.darkModeColor
                     ? link.darkModeColor
                     : link.color
                 "
                 :aria-label="'Accéder à ' + link.label"
-                v-bind="attrs"
-                v-on="on"
+                v-bind="props"
               >
-                <v-icon left>{{ link.icon }}</v-icon>
+                <v-icon start :icon="link.icon"></v-icon>
                 {{ link.label }}
               </v-btn>
             </template>
-            <span>{{ link.funnyCatchPhrase }}</span>
           </v-tooltip>
         </a>
       </v-card-text>
@@ -38,7 +36,8 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
+import { useTheme } from "vuetify";
 
 interface ContactLink {
   label: string;
@@ -49,9 +48,11 @@ interface ContactLink {
   funnyCatchPhrase: string;
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: "Contact",
-  components: {},
+  setup() {
+    return { theme: useTheme() };
+  },
   data: () => ({
     links: [
       {

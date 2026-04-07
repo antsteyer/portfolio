@@ -2,12 +2,12 @@
   <div id="experience">
     <h1>J'ai apporté ma pierre à ces édifices 💼</h1>
 
-    <v-timeline class="mt-10" :dense="$vuetify.breakpoint.smAndDown">
+    <v-timeline class="mt-10" :density="display.smAndDown.value ? 'compact' : 'default'" side="end">
       <v-timeline-item
         v-for="(experienceItem, index) in experiences"
         :key="index + experienceItem.label"
-        large
-        color="white"
+        size="large"
+        dot-color="white"
       >
         <template v-slot:icon v-if="experienceItem.image">
           <v-avatar>
@@ -18,17 +18,17 @@
           <span class="font-weight-bold">{{ experienceItem.year }}</span>
         </template>
         <v-card class="elevation-2">
-          <v-card-title class="headline">
+          <v-card-title class="text-h5">
             {{ experienceItem.label }}
           </v-card-title>
           <v-card-subtitle>
-            <v-icon small>mdi-map-marker</v-icon>
+            <v-icon size="small" icon="mdi-map-marker"></v-icon>
             {{ experienceItem.company }}
           </v-card-subtitle>
           <v-card-text v-html="experienceItem.description"></v-card-text>
           <v-divider></v-divider>
           <v-card-actions v-if="experienceItem.technos">
-            <v-chip-group column transition="scroll-x-transition">
+            <v-chip-group>
               <v-chip
                 v-for="(tech, iTech) in experienceItem.technos"
                 :key="iTech + tech"
@@ -43,7 +43,8 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
+import { useDisplay } from "vuetify";
 
 interface ExperienceItem {
   image?: string;
@@ -54,8 +55,11 @@ interface ExperienceItem {
   technos?: string[];
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: "Experience",
+  setup() {
+    return { display: useDisplay() };
+  },
   data: () => ({
     experiences: [
       {
