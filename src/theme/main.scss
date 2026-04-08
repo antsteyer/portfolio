@@ -1,52 +1,30 @@
-@import 'color';
+@use "color" as *;
 
 #app {
-  // Lien dans l'application
+  // Liens dans l'application
   a {
     text-decoration: none;
+
     &::before {
       transition: 0.4s cubic-bezier(1, -1, 0, 2);
       clip-path: polygon(25% 50%, 75% 50%, 75% 75%, 25% 75%);
     }
+
     &:hover::before {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 
-  // Titre de l'app
+  // Titre de l'application
   #app-title {
     font-size: large;
 
-    &.theme--light {
+    .v-theme--light & {
       color: $lightmode-text-color !important;
-      &::before {
-        color: $primary !important;
-        opacity: 1;
-        clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
-      }
-
-      &:hover::before {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-    }
-
-    &:hover::before {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    &.theme--dark {
-      &::before {
-        clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
-      }
-
-      &:hover::before {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
     }
   }
 
-
-  // Pages
+  // Pages avec timeline
   #formation,
   #experience {
     .v-timeline:before {
@@ -54,13 +32,12 @@
     }
   }
 
-
-
-  // Composants
+  // Skill list
   .skill-list {
-    .v-chip-group .v-chip--active {
+    .v-chip-group .v-chip--selected {
       background-color: $primary;
       color: black;
+
       &::before {
         opacity: 0;
       }
@@ -72,20 +49,17 @@
     color: black;
 
     a {
-      color:$darkmode-link-color;
+      color: $darkmode-link-color;
     }
   }
 
   // Styles transverses
-  .v-card__title {
+  .v-card-title {
     word-break: break-word;
   }
 
   .v-timeline:before {
     width: 10px;
-  }
-
-  .v-timeline:before {
     background: $primary;
   }
 }

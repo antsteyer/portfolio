@@ -12,9 +12,7 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/theme/main.scss";`
-      }
+      scss: { api: "modern-compiler" }
     }
   }
 });

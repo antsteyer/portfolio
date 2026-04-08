@@ -1,31 +1,20 @@
 <template>
-  <div :class="{ 'd-flex flex-column': display.smAndDown.value }">
+  <nav :class="{ 'd-flex flex-column': smAndDown }" aria-label="Navigation principale">
     <v-btn
-      v-for="item in items"
-      :key="item.label"
+      v-for="item in navItems"
+      :key="item.to"
       class="ma-2"
-      :to="item.routerLink"
       variant="text"
-      >{{ item.label }}</v-btn
+      :to="item.to"
     >
-  </div>
+      {{ item.label }}
+    </v-btn>
+  </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { useDisplay } from "vuetify";
+import { navItems } from "@/data/navItems";
 
-export default defineComponent({
-  name: "NavItems",
-  setup() {
-    return { display: useDisplay() };
-  },
-  data: () => ({
-    items: [
-      { label: "Formation", routerLink: "/formation" },
-      { label: "Expériences", routerLink: "/experiences" },
-      { label: "Contact", routerLink: "/contact" }
-    ]
-  })
-});
+const { smAndDown } = useDisplay();
 </script>
