@@ -1,22 +1,18 @@
 <template>
   <section class="contact">
-    <h1>Ne nous perdons pas de vue ! 📫</h1>
+    <h1>{{ t("contact.title") }}</h1>
 
-    <p class="mt-10">
-      Si tu veux simplement me dire bonjour ou si tu as envie de travailler avec moi, n'hésite pas à
-      me laisser un petit mot par email ou sur l'un de mes réseaux ci-dessous. Je serai ravi
-      d'échanger avec toi !
-    </p>
+    <p class="mt-10">{{ t("contact.intro") }}</p>
 
     <VCard class="mt-10" width="fit-content">
       <VCardText>
         <ul class="d-flex flex-column flex-md-row justify-center align-center contact-links">
-          <li v-for="link in contactLinks" :key="link.label">
+          <li v-for="link in contactLinks" :key="link.key">
             <VTooltip
               location="bottom"
               attach="#main-content"
-              :text="link.funnyCatchPhrase"
-              :aria-label="link.funnyCatchPhrase"
+              :text="t(`contactLinks.${link.key}.funnyCatchPhrase`)"
+              :aria-label="t(`contactLinks.${link.key}.funnyCatchPhrase`)"
             >
               <template #activator="{ props: activatorProps }">
                 <VBtn
@@ -28,12 +24,14 @@
                   :color="colorFor(link)"
                   :aria-label="
                     link.external
-                      ? `Accéder à ${link.label} (nouvelle fenêtre)`
-                      : `Accéder à ${link.label}`
+                      ? t('contact.linkAriaExternal', {
+                          label: t(`contactLinks.${link.key}.label`)
+                        })
+                      : t('contact.linkAria', { label: t(`contactLinks.${link.key}.label`) })
                   "
                 >
                   <VIcon start :icon="link.icon" />
-                  {{ link.label }}
+                  {{ t(`contactLinks.${link.key}.label`) }}
                 </VBtn>
               </template>
             </VTooltip>
@@ -45,10 +43,12 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n"
 import { useAppTheme } from "@/composables/useAppTheme"
 import { contactLinks } from "@/data/contactLinks"
 import type { ContactLink } from "@/types"
 
+const { t } = useI18n()
 const { isDark } = useAppTheme()
 
 function colorFor(link: ContactLink): string {

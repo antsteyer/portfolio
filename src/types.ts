@@ -1,9 +1,5 @@
 export interface TimelineEntry {
-  year: string
-  label: string
-  description: string
-  /** Side information: location for a formation, company for an experience. */
-  side: string
+  key: string
   image?: string
   technos?: string[]
 }
@@ -19,23 +15,21 @@ export const SKILL_TYPES = ["Front", "Back"] as const
 export type SkillType = (typeof SKILL_TYPES)[number]
 
 export interface ContactLink {
-  label: string
+  key: string
   icon: string
   color: string
   darkModeColor?: string
   href: string
-  funnyCatchPhrase: string
   /** When true, open in a new tab with safe rel attributes. */
   external?: boolean
 }
 
 export interface NavItem {
-  label: string
+  key: string
   to: string
 }
 
 export interface Highlight {
+  key: string
   icon: string
-  title: string
-  description: string
 }

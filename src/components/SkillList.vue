@@ -5,7 +5,7 @@
       role="group"
       aria-labelledby="skill-filter-label"
     >
-      <span id="skill-filter-label">Filtrer par :</span>
+      <span id="skill-filter-label">{{ t("skills.filterBy") }}</span>
 
       <VChipGroup v-model="skillType" color="primary" selected-class="text-on-primary">
         <VChip
@@ -16,7 +16,7 @@
           :value="type"
           :variant="skillType === type ? 'flat' : 'tonal'"
         >
-          {{ type }}
+          {{ t(`skills.types.${type}`) }}
         </VChip>
       </VChipGroup>
     </div>
@@ -32,7 +32,7 @@
               :model-value="skill.percent"
               color="primary"
               class="ma-6"
-              :aria-label="`${skill.label}, niveau de maîtrise ${skill.percent}%`"
+              :aria-label="t('skills.levelAria', { label: skill.label, percent: skill.percent })"
             >
               <div
                 v-if="!isHovering"
@@ -63,10 +63,12 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue"
+import { useI18n } from "vue-i18n"
 import { skills } from "@/data/skills"
 import { SKILL_TYPES, type SkillType } from "@/types"
 import { useAppTheme } from "@/composables/useAppTheme"
 
+const { t } = useI18n()
 const { isDark } = useAppTheme()
 const skillType = ref<SkillType | null>(null)
 
