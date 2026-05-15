@@ -10,9 +10,7 @@
       size="large"
     >
       <template v-if="entry.image" #icon>
-        <v-avatar>
-          <img :src="entry.image" :alt="`Icône : ${entry.label}`" />
-        </v-avatar>
+        <v-avatar :image="entry.image" :alt="`Icône : ${entry.label}`" />
       </template>
       <template #opposite>
         <span class="font-weight-bold">{{ entry.year }}</span>
