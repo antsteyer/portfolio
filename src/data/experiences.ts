@@ -1,4 +1,4 @@
-import type { TimelineEntry } from "@/types";
+import type { TimelineEntry } from "@/types"
 
 export const experiences: TimelineEntry[] = [
   {
@@ -24,9 +24,8 @@ export const experiences: TimelineEntry[] = [
     label: "Stage",
     year: "Juin et Juillet 2017",
     side: "OPAC Savoie, Chambéry",
-    description:
-      "Développer des scripts d'automatisation de tâches métiers en Java et Python.",
+    description: "Développer des scripts d'automatisation de tâches métiers en Java et Python.",
     image: "/img/logos/opac-savoie.webp",
     technos: ["Java", "Python"]
   }
-];
+]

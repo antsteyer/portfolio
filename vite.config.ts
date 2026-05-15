@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import vuetify from "vite-plugin-vuetify";
-import path from "node:path";
+import { defineConfig } from "vite"
+import vue from "@vitejs/plugin-vue"
+import vuetify from "vite-plugin-vuetify"
+import path from "node:path"
 
 export default defineConfig({
   plugins: [vue(), vuetify({ autoImport: true })],
@@ -10,4 +10,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src")
     }
   }
-});
+})

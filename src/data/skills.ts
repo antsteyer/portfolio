@@ -1,4 +1,4 @@
-import type { Skill } from "@/types";
+import type { Skill } from "@/types"
 
 export const skills: Skill[] = [
   { label: "Typescript", icon: "mdi-language-typescript", percent: 90, type: "Front" },
@@ -11,4 +11,4 @@ export const skills: Skill[] = [
   { label: "Java", icon: "mdi-language-java", percent: 60, type: "Back" },
   { label: "Spring", icon: "mdi-leaf", percent: 50, type: "Back" },
   { label: "Python", icon: "mdi-language-python", percent: 20, type: "Back" }
-];
+]
