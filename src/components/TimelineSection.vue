@@ -9,12 +9,7 @@
 
       <VCardItem>
         <template v-if="entry.image" #prepend>
-          <VAvatar
-            :image="entry.image"
-            :alt="`Icône : ${entry.label}`"
-            size="40"
-            color="white"
-          />
+          <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" size="40" color="white" />
         </template>
 
         <VCardTitle class="text-h6 text-wrap">
