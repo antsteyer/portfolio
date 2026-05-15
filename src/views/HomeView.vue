@@ -27,7 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { useHead } from "@unhead/vue"
 import SkillList from "@/components/SkillList.vue"
@@ -35,7 +34,7 @@ import HighlightCard from "@/components/home/HighlightCard.vue"
 import { highlights } from "@/data/highlights"
 import { useAge } from "@/composables/useAge"
 import { useRouteSeo } from "@/composables/useRouteSeo"
-import { SITE_URL } from "@/config/site"
+import { personJsonLd } from "@/config/jsonld"
 
 const { t } = useI18n()
 const age = useAge(new Date("1995-03-05"))
@@ -46,22 +45,12 @@ useRouteSeo({
   path: "/"
 })
 
-const personJsonLd = computed(() => ({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Antoine Steyer",
-  url: SITE_URL,
-  jobTitle: t("seo.jobTitle"),
-  description: t("seo.personDescription"),
-  address: { "@type": "PostalAddress", addressLocality: "Valence", addressCountry: "FR" },
-  sameAs: ["https://www.linkedin.com/in/antsteyer/", "https://github.com/antsteyer"]
-}))
-
 useHead({
   script: [
     {
+      key: "person-jsonld",
       type: "application/ld+json",
-      innerHTML: computed(() => JSON.stringify(personJsonLd.value))
+      innerHTML: JSON.stringify(personJsonLd)
     }
   ]
 })
