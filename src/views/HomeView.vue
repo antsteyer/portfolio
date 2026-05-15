@@ -4,14 +4,14 @@
 
     <div class="my-10 text-body-1">
       <p>
-        J'ai {{ age }} ans, je réside actuellement dans la magnifique ville de Lyon, mais je suis
-        originaire de Savoie.
+        J'ai {{ age }} ans, je réside actuellement à Valence, mais je suis originaire de Savoie.
       </p>
 
       <p>
         De formation Ingénieur en Interfaces Homme-Machine, je travaille principalement en
-        développement Front-End. J'accorde toute son importance à l'expérience utilisateur, pour
-        qu'elle soit intuitive, dynamique et efficace.
+        développement Front-End, avec une attention particulière pour l'accessibilité du web. Je
+        m'attache à concevoir des interfaces inclusives, intuitives et performantes, pensées pour
+        tous les utilisateurs.
       </p>
 
       <VRow class="mt-4" align="start">

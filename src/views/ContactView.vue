@@ -15,6 +15,7 @@
           :key="link.label"
           location="bottom"
           :text="link.funnyCatchPhrase"
+          :aria-label="link.funnyCatchPhrase"
         >
           <template #activator="{ props: activatorProps }">
             <VBtn
