@@ -27,21 +27,21 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-container fluid style="max-width: 1300px" class="pa-8 mb-16">
+      <v-container fluid style="max-width: 1300px" class="pa-8">
         <router-view />
       </v-container>
     </v-main>
 
-    <v-footer absolute color="primary">
-      <v-col class="text-center" cols="12" md="6">
+    <v-footer app color="primary" class="d-flex flex-wrap justify-space-around py-6">
+      <div class="text-center">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
-      </v-col>
-      <v-col class="text-center" cols="12" md="6">
+      </div>
+      <div class="text-center">
         Made with
         <a href="https://github.com/vuejs/vue" rel="noopener noreferrer">Vue</a>
         and
         <a href="https://github.com/vuetifyjs/vuetify" rel="noopener noreferrer">Vuetify</a>
-      </v-col>
+      </div>
     </v-footer>
   </v-app>
 </template>
