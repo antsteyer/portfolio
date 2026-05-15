@@ -31,14 +31,18 @@
             <div
               v-if="!isHovering"
               class="d-flex flex-column align-center text-center"
-              :class="isDark ? 'text-white' : 'text-black'"
+              :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
             >
               <VIcon :icon="skill.icon" />
 
               <span>{{ skill.label }}</span>
             </div>
 
-            <span v-else class="font-weight-bold" :class="isDark ? 'text-white' : 'text-black'">
+            <span
+              v-else
+              class="font-weight-bold"
+              :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
+            >
               {{ skill.percent }}%
             </span>
           </VProgressCircular>
@@ -61,3 +65,13 @@ const filteredSkills = computed(() =>
   skillType.value ? skills.filter(s => s.type === skillType.value) : skills
 )
 </script>
+
+<style scoped>
+.skill-label-dark {
+  color: white;
+}
+
+.skill-label-light {
+  color: black;
+}
+</style>

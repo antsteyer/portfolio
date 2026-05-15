@@ -9,7 +9,12 @@
 
       <VCardItem>
         <template v-if="entry.image" #prepend>
-          <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" size="40" color="white" />
+          <VAvatar
+            :image="entry.image"
+            :alt="`Icône : ${entry.label}`"
+            size="40"
+            class="timeline-avatar"
+          />
         </template>
 
         <VCardTitle class="text-h6 text-wrap">
@@ -17,7 +22,7 @@
         </VCardTitle>
 
         <VCardSubtitle>
-          <VIcon size="small" icon="mdi-map-marker" />
+          <VIcon size="small" :icon="mdiMapMarker" />
           {{ entry.side }}
         </VCardSubtitle>
       </VCardItem>
@@ -41,7 +46,7 @@
   <VTimeline v-else class="mt-10" side="end">
     <VTimelineItem v-for="entry in entries" :key="entry.label + entry.year" size="large">
       <template v-if="entry.image" #icon>
-        <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" color="white" />
+        <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" class="timeline-avatar" />
       </template>
 
       <template #opposite>
@@ -52,7 +57,7 @@
         <VCardTitle class="text-h5">{{ entry.label }}</VCardTitle>
 
         <VCardSubtitle>
-          <VIcon size="small" icon="mdi-map-marker" />
+          <VIcon size="small" :icon="mdiMapMarker" />
           {{ entry.side }}
         </VCardSubtitle>
         <!-- eslint-disable-next-line vue/no-v-html, vue/no-v-text-v-html-on-component -->
@@ -76,9 +81,16 @@
 
 <script setup lang="ts">
 import { useDisplay } from "vuetify"
+import { mdiMapMarker } from "@mdi/js"
 import type { TimelineEntry } from "@/types"
 
 defineProps<{ entries: TimelineEntry[] }>()
 
 const { smAndDown } = useDisplay()
 </script>
+
+<style scoped>
+.timeline-avatar {
+  background-color: white;
+}
+</style>
