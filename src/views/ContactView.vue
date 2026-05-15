@@ -46,10 +46,17 @@
 import { useI18n } from "vue-i18n"
 import { useAppTheme } from "@/composables/useAppTheme"
 import { contactLinks } from "@/data/contactLinks"
+import { useRouteSeo } from "@/composables/useRouteSeo"
 import type { ContactLink } from "@/types"
 
 const { t } = useI18n()
 const { isDark } = useAppTheme()
+
+useRouteSeo({
+  titleKey: "meta.contact",
+  descriptionKey: "meta.descriptions.contact",
+  path: "/contact"
+})
 
 function colorFor(link: ContactLink): string {
   return isDark.value && link.darkModeColor ? link.darkModeColor : link.color

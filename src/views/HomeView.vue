@@ -27,12 +27,42 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue"
 import { useI18n } from "vue-i18n"
+import { useHead } from "@unhead/vue"
 import SkillList from "@/components/SkillList.vue"
 import HighlightCard from "@/components/home/HighlightCard.vue"
 import { highlights } from "@/data/highlights"
 import { useAge } from "@/composables/useAge"
+import { useRouteSeo } from "@/composables/useRouteSeo"
+import { SITE_URL } from "@/config/site"
 
 const { t } = useI18n()
 const age = useAge(new Date("1995-03-05"))
+
+useRouteSeo({
+  titleKey: "meta.home",
+  descriptionKey: "meta.descriptions.home",
+  path: "/"
+})
+
+const personJsonLd = computed(() => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Antoine Steyer",
+  url: SITE_URL,
+  jobTitle: t("seo.jobTitle"),
+  description: t("seo.personDescription"),
+  address: { "@type": "PostalAddress", addressLocality: "Valence", addressCountry: "FR" },
+  sameAs: ["https://www.linkedin.com/in/antsteyer/", "https://github.com/antsteyer"]
+}))
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: computed(() => JSON.stringify(personJsonLd.value))
+    }
+  ]
+})
 </script>

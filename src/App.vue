@@ -58,16 +58,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed, ref } from "vue"
 import { useDisplay } from "vuetify"
+import { useHead, useSeoMeta } from "@unhead/vue"
 import { useI18n, I18nT } from "vue-i18n"
 import { mdiThemeLightDark } from "@mdi/js"
 import NavItems from "@/components/header/NavItems.vue"
 import LocaleSwitcher from "@/components/header/LocaleSwitcher.vue"
 import { useAppTheme } from "@/composables/useAppTheme"
+import { SITE_URL } from "@/config/site"
 
 const { mdAndUp } = useDisplay()
 const { isDark, toggle } = useAppTheme()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const drawer = ref(false)
+
+useHead({
+  htmlAttrs: { lang: locale }
+})
+
+useSeoMeta({
+  ogSiteName: computed(() => t("common.siteName")),
+  ogType: "website",
+  ogLocale: computed(() => (locale.value === "fr" ? "fr_FR" : "en_US")),
+  ogImage: `${SITE_URL}/og-image.png`,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: computed(() => t("common.siteName")),
+  twitterCard: "summary_large_image",
+  twitterImage: `${SITE_URL}/og-image.png`
+})
 </script>
