@@ -34,7 +34,11 @@
               <v-icon :icon="skill.icon" />
               <span>{{ skill.label }}</span>
             </div>
-            <span v-else class="text-black font-weight-bold">
+            <span
+              v-else
+              class="font-weight-bold"
+              :class="isDark ? 'text-white' : 'text-black'"
+            >
               {{ skill.percent }}%
             </span>
           </v-progress-circular>
