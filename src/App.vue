@@ -32,7 +32,7 @@
       </v-container>
     </v-main>
 
-    <v-footer app color="primary" class="d-flex flex-wrap justify-space-around py-6">
+    <v-footer app color="primary" class="d-flex flex-wrap justify-space-around ga-4 py-6">
       <div class="text-center">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
       </div>
