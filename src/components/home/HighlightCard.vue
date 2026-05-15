@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column align-center pa-8 text-center">
     <VAvatar color="primary" size="56">
-      <VIcon size="large" color="black" :icon="icon" />
+      <VIcon size="large" class="highlight-icon" :icon="icon" />
     </VAvatar>
 
     <span class="my-4 font-weight-bold">{{ title }}</span>
@@ -19,3 +19,9 @@ defineProps<{
   description?: string
 }>()
 </script>
+
+<style scoped>
+.highlight-icon {
+  color: black;
+}
+</style>

@@ -8,7 +8,7 @@
       <NavItems v-if="mdAndUp" />
 
       <VBtn
-        icon="mdi-theme-light-dark"
+        :icon="mdiThemeLightDark"
         variant="text"
         :aria-label="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'"
         :title="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'"
@@ -51,6 +51,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { useDisplay } from "vuetify"
+import { mdiThemeLightDark } from "@mdi/js"
 import NavItems from "@/components/header/NavItems.vue"
 import { useAppTheme } from "@/composables/useAppTheme"
 

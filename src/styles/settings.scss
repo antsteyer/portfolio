@@ -1,0 +1,5 @@
+@use "sass:meta";
+
+@forward "vuetify/settings" with (
+  $color-pack: false
+);
