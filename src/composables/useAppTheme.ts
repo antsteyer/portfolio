@@ -22,9 +22,9 @@ export function useAppTheme() {
   const theme = useTheme()
 
   if (!initialized) {
-    theme.global.name.value = getPreferredTheme()
+    theme.change(getPreferredTheme())
     watch(
-      () => theme.global.name.value,
+      () => theme.name.value,
       name => {
         if (typeof window !== "undefined") {
           window.localStorage.setItem(STORAGE_KEY, name)
@@ -34,10 +34,10 @@ export function useAppTheme() {
     initialized = true
   }
 
-  const isDark = computed(() => theme.global.current.value.dark)
+  const isDark = computed(() => theme.current.value.dark)
 
   function toggle() {
-    theme.global.name.value = isDark.value ? "light" : "dark"
+    theme.change(isDark.value ? "light" : "dark")
   }
 
   return { isDark, toggle }
