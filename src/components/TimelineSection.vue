@@ -33,11 +33,11 @@
         <VDivider />
 
         <VCardActions>
-          <VChipGroup column>
-            <VChip v-for="tech in entry.technos" :key="tech">
+          <div class="d-flex flex-wrap ga-2">
+            <VChip v-for="tech in entry.technos" :key="tech" tag="span">
               {{ tech }}
             </VChip>
-          </VChipGroup>
+          </div>
         </VCardActions>
       </template>
     </VCard>
@@ -67,11 +67,11 @@
           <VDivider />
 
           <VCardActions>
-            <VChipGroup column>
-              <VChip v-for="tech in entry.technos" :key="tech">
+            <div class="d-flex flex-wrap ga-2">
+              <VChip v-for="tech in entry.technos" :key="tech" tag="span">
                 {{ tech }}
               </VChip>
-            </VChipGroup>
+            </div>
           </VCardActions>
         </template>
       </VCard>
