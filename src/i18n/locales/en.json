@@ -24,7 +24,16 @@
     "formation": "Education",
     "experience": "Experience",
     "contact": "Contact",
-    "description": "Antoine Steyer's portfolio — Full Stack engineer and Front-End developer passionate about user experience."
+    "descriptions": {
+      "home": "Antoine Steyer's portfolio — Full Stack engineer and Front-End developer based in Valence (France), passionate about web accessibility and user experience.",
+      "formation": "Antoine Steyer's academic background: Polytech Nice Sophia, double degree as a Computer Science Engineer and Master IFI through apprenticeship.",
+      "experience": "Antoine Steyer's professional journey: Front-End and Full-Stack developer at Agorize, Myre, Klee Group and Radioactiv'IT.",
+      "contact": "Get in touch with Antoine Steyer via email, LinkedIn or GitHub to discuss a project or simply say hi."
+    }
+  },
+  "seo": {
+    "jobTitle": "Full Stack Engineer & Front-End Developer",
+    "personDescription": "Human-Computer Interaction engineer specialized in Front-End development and web accessibility."
   },
   "home": {
     "title": "Hi, I'm Antoine 👦🏻",

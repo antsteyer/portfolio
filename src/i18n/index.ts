@@ -23,27 +23,18 @@ function detectLocale(): AppLocale {
 
 export const i18n = createI18n<false>({
   legacy: false,
-  locale: detectLocale(),
+  locale: DEFAULT_LOCALE,
   fallbackLocale: DEFAULT_LOCALE,
   messages: { fr, en }
 })
-
-function applyDocumentLocale(locale: string): void {
-  if (typeof document === "undefined") return
-  document.documentElement.lang = locale
-  const description = i18n.global.t("meta.description")
-  const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
-  if (meta) meta.content = description
-}
 
 export function setLocale(locale: AppLocale): void {
   i18n.global.locale.value = locale
   if (typeof window !== "undefined") {
     window.localStorage.setItem(STORAGE_KEY, locale)
   }
-  applyDocumentLocale(locale)
 }
 
 export function initLocale(): void {
-  applyDocumentLocale(i18n.global.locale.value)
+  i18n.global.locale.value = detectLocale()
 }
