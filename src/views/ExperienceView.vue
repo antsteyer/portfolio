@@ -1,12 +1,15 @@
 <template>
   <section id="experience">
-    <h1>J'ai apporté ma pierre à ces édifices 💼</h1>
+    <h1>{{ t("experience.title") }}</h1>
 
-    <TimelineSection :entries="experiences" />
+    <TimelineSection :entries="experiences" namespace="experiences" />
   </section>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "vue-i18n"
 import TimelineSection from "@/components/TimelineSection.vue"
 import { experiences } from "@/data/experiences"
+
+const { t } = useI18n()
 </script>

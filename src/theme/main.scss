@@ -1,6 +1,6 @@
 @use "color" as *;
 
-// Skip link — visible uniquement quand focus
+// Skip link — only visible when focused
 .skip-link {
   position: absolute;
   top: 0;
@@ -21,7 +21,7 @@
   }
 }
 
-// Respect des préférences utilisateur de mouvement réduit
+// Honor the user's reduced-motion preference
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -33,18 +33,18 @@
   }
 }
 
-// Évite le contour de focus visible sur le wrapper VMain (rendu programmatiquement)
+// Hide the visible focus ring on the VMain wrapper (focused programmatically)
 #main-content:focus {
   outline: none;
 }
 
 #app {
-  // Liens dans l'application
+  // App-wide links
   a {
     text-decoration: none;
   }
 
-  // Titre de l'application
+  // App title
   #app-title {
     font-size: large;
   }
@@ -53,7 +53,7 @@
     color: $lightmode-text-color !important;
   }
 
-  // Pages avec timeline
+  // Timeline-based pages
   #formation,
   #experience {
     .v-timeline:before {
@@ -81,6 +81,11 @@
     }
   }
 
+  // Locale switcher — drop the active-button overlay that drags contrast below WCAG AA
+  .locale-switcher .v-btn--active .v-btn__overlay {
+    opacity: 0;
+  }
+
   // Footer
   footer.v-footer {
     a {
@@ -89,7 +94,7 @@
     }
   }
 
-  // Styles transverses
+  // Cross-cutting styles
   .v-card-title {
     word-break: break-word;
   }

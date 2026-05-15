@@ -1,0 +1,156 @@
+{
+  "common": {
+    "siteName": "Antoine Steyer"
+  },
+  "nav": {
+    "formation": "Education",
+    "experiences": "Experience",
+    "contact": "Contact"
+  },
+  "header": {
+    "homeAria": "ANT, back to home",
+    "skipToContent": "Skip to main content",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme",
+    "openMenu": "Open navigation menu",
+    "mainNav": "Main navigation",
+    "localeSwitcher": "Change language"
+  },
+  "footer": {
+    "madeWith": "Made with {vue} and {vuetify}"
+  },
+  "meta": {
+    "home": "Home",
+    "formation": "Education",
+    "experience": "Experience",
+    "contact": "Contact",
+    "description": "Antoine Steyer's portfolio — Full Stack engineer and Front-End developer passionate about user experience."
+  },
+  "home": {
+    "title": "Hi, I'm Antoine 👦🏻",
+    "intro1": "I'm {age} years old, I currently live in Valence (France), but I'm originally from Savoie.",
+    "intro2": "Trained as an engineer in Human-Computer Interaction, I work mostly on Front-End development, with a particular focus on web accessibility. I strive to design inclusive, intuitive and performant interfaces, built for everyone.",
+    "skillsTitle": "My skills 📚"
+  },
+  "formation": {
+    "title": "It's a long story 🎓"
+  },
+  "experience": {
+    "title": "I've contributed to these projects 💼"
+  },
+  "contact": {
+    "title": "Let's stay in touch! 📫",
+    "intro": "Whether you just want to say hi or you'd like to work with me, feel free to drop me a line by email or on one of the networks below. I'd be glad to chat!",
+    "linkAria": "Open {label}",
+    "linkAriaExternal": "Open {label} (new window)"
+  },
+  "skills": {
+    "filterBy": "Filter by:",
+    "types": {
+      "Front": "Front",
+      "Back": "Back"
+    },
+    "levelAria": "{label}, proficiency level {percent}%"
+  },
+  "timeline": {
+    "iconAlt": "Icon: {label}"
+  },
+  "contactLinks": {
+    "email": {
+      "label": "Email",
+      "funnyCatchPhrase": "I check my inbox every day"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "funnyCatchPhrase": "Please don't send me a soulless boilerplate message"
+    },
+    "github": {
+      "label": "Github",
+      "funnyCatchPhrase": "My humble contribution to open-source"
+    }
+  },
+  "highlights": {
+    "curious": {
+      "title": "Curious",
+      "description": "about new technologies and the evolution of major web frameworks; I also care deeply about the ergonomics and accessibility of apps and websites."
+    },
+    "rigorous": {
+      "title": "Rigorous",
+      "description": "in my code and my organisation, I regularly read up on development best practices. Do Less, Better!"
+    },
+    "collaborative": {
+      "title": "Collaborative",
+      "description": "comfortable working in a team, I enjoy sharing what I know and learning from others through code reviews and pair programming."
+    }
+  },
+  "formations": {
+    "polytechNice": {
+      "year": "2015-2019",
+      "side": "Polytech' Nice Sophia",
+      "label": "Engineering & Master's degree in Computer Science",
+      "intro": "Dual degree:",
+      "bullets": [
+        "Engineering degree in Computer Science, Human-Computer Interaction specialty",
+        "Master's in Computer Science & Engineering (IFI), apprenticeship track"
+      ]
+    },
+    "polytechAnnecy": {
+      "year": "2013-2015",
+      "side": "Polytech' Annecy Chambéry",
+      "label": "PeiP - Computer Science track",
+      "intro": "Preparatory cycle for the Polytech engineering schools."
+    },
+    "vaugelas": {
+      "year": "2013",
+      "side": "Lycée Vaugelas - Chambéry",
+      "label": "French Baccalauréat S - SVT",
+      "intro": "Passed with honours (Mention Bien)."
+    }
+  },
+  "experiences": {
+    "agorize": {
+      "year": "February 2023 – Present",
+      "side": "Agorize, Paris",
+      "label": "Front-End Developer",
+      "bullets": [
+        "Build new features on the Vue SPA and SSR application",
+        "Migrate the codebase from Vue 2 to Vue 3 (and from Webpack to Vite)",
+        "Make the application accessible to WCAG AA standards"
+      ]
+    },
+    "myre": {
+      "year": "July 2022 – January 2023",
+      "side": "Myre, Lyon",
+      "label": "Front-End Developer",
+      "bullets": [
+        "Build new features",
+        "Design, build and integrate new cross-app Angular modules",
+        "Optimise the performance of Angular modules"
+      ]
+    },
+    "kleeGroup": {
+      "year": "October 2019 – June 2022",
+      "side": "Klee Group, Lyon",
+      "label": "Full-Stack Developer",
+      "bullets": [
+        "Build new full-stack features for various public-sector clients",
+        "Contribute to UX/UI design and facilitate ceremonies as Scrum Master"
+      ]
+    },
+    "radioactivit": {
+      "year": "September 2018 – September 2019",
+      "side": "Radioactiv'IT, Sophia Antipolis",
+      "label": "Apprenticeship",
+      "bullets": [
+        "Design and implement the user interface of a Business Intelligence tool",
+        "Ad-hoc development on clients' mobile and web applications"
+      ]
+    },
+    "opacSavoie": {
+      "year": "June – July 2017",
+      "side": "OPAC Savoie, Chambéry",
+      "label": "Internship",
+      "intro": "Build business-task automation scripts in Java and Python."
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "common": {
+    "siteName": "Antoine Steyer"
+  },
+  "nav": {
+    "formation": "Formation",
+    "experiences": "Expériences",
+    "contact": "Contact"
+  },
+  "header": {
+    "homeAria": "ANT, retour à l'accueil",
+    "skipToContent": "Aller au contenu principal",
+    "themeToLight": "Activer le thème clair",
+    "themeToDark": "Activer le thème sombre",
+    "openMenu": "Ouvrir le menu de navigation",
+    "mainNav": "Navigation principale",
+    "localeSwitcher": "Changer de langue"
+  },
+  "footer": {
+    "madeWith": "Réalisé avec {vue} et {vuetify}"
+  },
+  "meta": {
+    "home": "Accueil",
+    "formation": "Formation",
+    "experience": "Expériences",
+    "contact": "Contact",
+    "description": "Portfolio d'Antoine Steyer — Ingénieur Full Stack et développeur Front-End passionné par l'expérience utilisateur."
+  },
+  "home": {
+    "title": "Salut, moi c'est Antoine 👦🏻",
+    "intro1": "J'ai {age} ans, je réside actuellement à Valence, mais je suis originaire de Savoie.",
+    "intro2": "De formation Ingénieur en Interfaces Homme-Machine, je travaille principalement en développement Front-End, avec une attention particulière pour l'accessibilité du web. Je m'attache à concevoir des interfaces inclusives, intuitives et performantes, pensées pour tous les utilisateurs.",
+    "skillsTitle": "Mes savoir-faire 📚"
+  },
+  "formation": {
+    "title": "C'est une longue histoire 🎓"
+  },
+  "experience": {
+    "title": "J'ai apporté ma pierre à ces édifices 💼"
+  },
+  "contact": {
+    "title": "Ne nous perdons pas de vue ! 📫",
+    "intro": "Si tu veux simplement me dire bonjour ou si tu as envie de travailler avec moi, n'hésite pas à me laisser un petit mot par email ou sur l'un de mes réseaux ci-dessous. Je serai ravi d'échanger avec toi !",
+    "linkAria": "Accéder à {label}",
+    "linkAriaExternal": "Accéder à {label} (nouvelle fenêtre)"
+  },
+  "skills": {
+    "filterBy": "Filtrer par :",
+    "types": {
+      "Front": "Front",
+      "Back": "Back"
+    },
+    "levelAria": "{label}, niveau de maîtrise {percent}%"
+  },
+  "timeline": {
+    "iconAlt": "Icône : {label}"
+  },
+  "contactLinks": {
+    "email": {
+      "label": "Email",
+      "funnyCatchPhrase": "Je lis mes mails quotidiennement"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "funnyCatchPhrase": "Merci de ne pas m'envoyer de message préconçu sans âme ni personnalisation"
+    },
+    "github": {
+      "label": "Github",
+      "funnyCatchPhrase": "Mon humble contribution à l'open-source"
+    }
+  },
+  "highlights": {
+    "curious": {
+      "title": "Curieux",
+      "description": "des nouvelles technologies et des évolutions des principaux frameworks Web, je suis aussi sensible à l'ergonomie et à l'accessibilité des applications et sites web."
+    },
+    "rigorous": {
+      "title": "Rigoureux",
+      "description": "dans mon code et mon organisation, je me documente régulièrement pour apprendre les bonnes pratiques de développement. Do Less, Better !"
+    },
+    "collaborative": {
+      "title": "Collaboratif",
+      "description": "à l'aise dans le travail en équipe, j'aime partager mes connaissances et apprendre des autres lors des revues de code et du pair programming."
+    }
+  },
+  "formations": {
+    "polytechNice": {
+      "year": "2015-2019",
+      "side": "Polytech' Nice Sophia",
+      "label": "Diplômes Ingénieur et Master Informatique",
+      "intro": "Double diplôme :",
+      "bullets": [
+        "Ingénieur en Sciences Informatiques, spécialité Interfaces Homme-Machine",
+        "Master Informatique et Ingénierie (IFI) en apprentissage"
+      ]
+    },
+    "polytechAnnecy": {
+      "year": "2013-2015",
+      "side": "Polytech' Annecy Chambéry",
+      "label": "PeiP - Option Informatique",
+      "intro": "Parcours des écoles d'ingénieurs Polytech."
+    },
+    "vaugelas": {
+      "year": "2013",
+      "side": "Lycée Vaugelas - Chambéry",
+      "label": "BAC S - SVT",
+      "intro": "Mention Bien."
+    }
+  },
+  "experiences": {
+    "agorize": {
+      "year": "Février 2023 à Aujourd'hui",
+      "side": "Agorize, Paris",
+      "label": "Développeur Front-End",
+      "bullets": [
+        "Développer de nouvelles fonctionnalités sur l'application Vue SPA et SSR",
+        "Migrer de Vue 2 à Vue 3 (et passage de Webpack à Vite)",
+        "Rendre l'application accessible en respectant le WCAG AA"
+      ]
+    },
+    "myre": {
+      "year": "Juillet 2022 à Janvier 2023",
+      "side": "Myre, Lyon",
+      "label": "Développeur Front-End",
+      "bullets": [
+        "Développer de nouvelles fonctionnalités",
+        "Concevoir, créer et intégrer de nouveaux modules cross-app Angular",
+        "Optimiser les performances des modules Angular"
+      ]
+    },
+    "kleeGroup": {
+      "year": "Octobre 2019 à Juin 2022",
+      "side": "Klee Group, Lyon",
+      "label": "Développeur Full-Stack",
+      "bullets": [
+        "Développer de nouvelles fonctionnalités full-stack pour différents clients du secteur public",
+        "Participer aux réflexions UX/UI et animer les cérémonies en tant que Scrum Master"
+      ]
+    },
+    "radioactivit": {
+      "year": "Septembre 2018 à Septembre 2019",
+      "side": "Radioactiv'IT, Sophia Antipolis",
+      "label": "Apprentissage",
+      "bullets": [
+        "Concevoir et implémenter l'interface utilisateur d'un outil de Business Intelligence",
+        "Développements ponctuels sur applications mobiles ou web de clients"
+      ]
+    },
+    "opacSavoie": {
+      "year": "Juin et Juillet 2017",
+      "side": "OPAC Savoie, Chambéry",
+      "label": "Stage",
+      "intro": "Développer des scripts d'automatisation de tâches métiers en Java et Python."
+    }
+  }
+}

@@ -3,29 +3,26 @@ import type { ContactLink } from "@/types"
 
 export const contactLinks: ContactLink[] = [
   {
-    label: "Email",
+    key: "email",
     icon: mdiEmail,
     color: "rgb(85, 34, 250)",
     darkModeColor: "#a78bfa",
-    href: "mailto:antoine.steyer@hey.com",
-    funnyCatchPhrase: "Je lis mes mails quotidiennement"
+    href: "mailto:antoine.steyer@hey.com"
   },
   {
-    label: "LinkedIn",
+    key: "linkedin",
     icon: mdiLinkedin,
     color: "#2867B2",
     darkModeColor: "#70B5F9",
     href: "https://www.linkedin.com/in/antsteyer/",
-    funnyCatchPhrase: "Merci de ne pas m'envoyer de message préconçu sans âme ni personnalisation",
     external: true
   },
   {
-    label: "Github",
+    key: "github",
     icon: mdiGithub,
     color: "#24292e",
     darkModeColor: "white",
     href: "https://github.com/antsteyer",
-    funnyCatchPhrase: "Mon humble contribution à l'open-source",
     external: true
   }
 ]
