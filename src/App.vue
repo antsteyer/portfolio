@@ -3,6 +3,13 @@
     <a href="#main-content" class="skip-link">{{ t("header.skipToContent") }}</a>
 
     <VAppBar elevate-on-scroll>
+      <VAppBarNavIcon
+        v-if="!mdAndUp"
+        :aria-label="t('header.openMenu')"
+        :title="t('header.openMenu')"
+        @click.stop="drawer = !drawer"
+      />
+
       <VBtn id="app-title" variant="text" color="primary" to="/" :aria-label="t('header.homeAria')">
         ANT
       </VBtn>
@@ -19,13 +26,6 @@
         :aria-label="isDark ? t('header.themeToLight') : t('header.themeToDark')"
         :title="isDark ? t('header.themeToLight') : t('header.themeToDark')"
         @click="toggle"
-      />
-
-      <VAppBarNavIcon
-        v-if="!mdAndUp"
-        :aria-label="t('header.openMenu')"
-        :title="t('header.openMenu')"
-        @click.stop="drawer = !drawer"
       />
     </VAppBar>
 
