@@ -9,7 +9,7 @@
 
       <VCardItem>
         <template v-if="entry.image" #prepend>
-          <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" size="40" />
+          <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" size="40" color="white" />
         </template>
 
         <VCardTitle class="text-h6 text-wrap">
@@ -41,7 +41,7 @@
   <VTimeline v-else class="mt-10" side="end">
     <VTimelineItem v-for="entry in entries" :key="entry.label + entry.year" size="large">
       <template v-if="entry.image" #icon>
-        <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" />
+        <VAvatar :image="entry.image" :alt="`Icône : ${entry.label}`" color="white" />
       </template>
 
       <template #opposite>

@@ -3,8 +3,15 @@
     <div class="d-flex align-center justify-start">
       <span>Filtrer par :</span>
 
-      <VChipGroup v-model="skillType" color="primary">
-        <VChip v-for="type in SKILL_TYPES" :key="type" filter class="mx-2" :value="type">
+      <VChipGroup v-model="skillType" color="primary" selected-class="text-on-primary">
+        <VChip
+          v-for="type in SKILL_TYPES"
+          :key="type"
+          filter
+          class="mx-2"
+          :value="type"
+          :variant="skillType === type ? 'flat' : 'tonal'"
+        >
           {{ type }}
         </VChip>
       </VChipGroup>

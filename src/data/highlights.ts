@@ -14,9 +14,9 @@ export const highlights: Highlight[] = [
       "dans mon code et mon organisation, je me documente régulièrement pour apprendre les bonnes pratiques de développement. Do Less, Better !"
   },
   {
-    icon: "mdi-flask",
-    title: "Persévérant",
+    icon: "mdi-account-group",
+    title: "Collaboratif",
     description:
-      "dans la résolution de problèmes, je résiste à toutes les pressions (sauf celle que l'on boit)."
+      "à l'aise dans le travail en équipe, j'aime partager mes connaissances et apprendre des autres lors des revues de code et du pair programming."
   }
 ]

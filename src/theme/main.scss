@@ -34,6 +34,10 @@
     .v-card-text ul {
       padding-inline-start: 1.5rem;
     }
+
+    .v-avatar .v-img__img {
+      object-fit: contain;
+    }
   }
 
   // Skill list
@@ -50,10 +54,9 @@
 
   // Footer
   footer.v-footer {
-    color: black;
-
     a {
-      color: $darkmode-link-color;
+      color: inherit;
+      text-decoration: underline;
     }
   }
 

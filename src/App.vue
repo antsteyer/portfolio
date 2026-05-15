@@ -40,7 +40,7 @@
 
       <div class="text-center">
         Made with
-        <a href="https://github.com/vuejs/vue" rel="noopener noreferrer">Vue</a>
+        <a href="https://github.com/vuejs/core" rel="noopener noreferrer">Vue</a>
         and
         <a href="https://github.com/vuetifyjs/vuetify" rel="noopener noreferrer">Vuetify</a>
       </div>
