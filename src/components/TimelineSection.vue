@@ -17,7 +17,7 @@
           />
         </template>
 
-        <VCardTitle class="text-h6 text-wrap">
+        <VCardTitle tag="h2" class="text-h6 text-wrap">
           {{ entry.label }}
         </VCardTitle>
 
@@ -33,11 +33,11 @@
         <VDivider />
 
         <VCardActions>
-          <VChipGroup column>
-            <VChip v-for="tech in entry.technos" :key="tech">
+          <div class="d-flex flex-wrap ga-2">
+            <VChip v-for="tech in entry.technos" :key="tech" tag="span">
               {{ tech }}
             </VChip>
-          </VChipGroup>
+          </div>
         </VCardActions>
       </template>
     </VCard>
@@ -54,7 +54,7 @@
       </template>
 
       <VCard class="elevation-2">
-        <VCardTitle class="text-h5">{{ entry.label }}</VCardTitle>
+        <VCardTitle tag="h2" class="text-h5">{{ entry.label }}</VCardTitle>
 
         <VCardSubtitle>
           <VIcon size="small" :icon="mdiMapMarker" />
@@ -67,11 +67,11 @@
           <VDivider />
 
           <VCardActions>
-            <VChipGroup column>
-              <VChip v-for="tech in entry.technos" :key="tech">
+            <div class="d-flex flex-wrap ga-2">
+              <VChip v-for="tech in entry.technos" :key="tech" tag="span">
                 {{ tech }}
               </VChip>
-            </VChipGroup>
+            </div>
           </VCardActions>
         </template>
       </VCard>
