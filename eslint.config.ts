@@ -47,10 +47,7 @@ export default defineConfigWithVueTs(
         }
       ],
       "vue/multi-word-component-names": "error",
-      "vue/padding-line-between-tags": [
-        "error",
-        [{ blankLine: "always", prev: "*", next: "*" }]
-      ],
+      "vue/padding-line-between-tags": ["error", [{ blankLine: "always", prev: "*", next: "*" }]],
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
