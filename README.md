@@ -4,23 +4,20 @@
 
 ## Project setup
 ```
-yarn install
+bun install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+bun run dev
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+bun run build
 ```
 
-### Lints and fixes files
+### Previews the production build locally
 ```
-yarn lint
+bun run preview
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

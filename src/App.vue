@@ -1,67 +1,58 @@
 <template>
-  <v-app app id="app">
-    <v-app-bar app elevate-on-scroll>
-      <v-btn text id="app-title" color="primary" to="/">ANT</v-btn>
-      <v-spacer></v-spacer>
+  <v-app id="app">
+    <v-app-bar elevate-on-scroll>
+      <v-btn id="app-title" variant="text" color="primary" to="/">ANT</v-btn>
+      <v-spacer />
 
-      <NavItems v-if="$vuetify.breakpoint.mdAndUp"></NavItems>
-      <v-icon
-        aria-label="Changer le thème"
-        title="Changer le thème"
-        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-        >mdi-theme-light-dark</v-icon
-      >
+      <NavItems v-if="mdAndUp" />
+
+      <v-btn
+        icon="mdi-theme-light-dark"
+        variant="text"
+        :aria-label="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'"
+        :title="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'"
+        @click="toggle"
+      />
+
       <v-app-bar-nav-icon
+        v-if="!mdAndUp"
         aria-label="Ouvrir le menu de navigation"
         title="Ouvrir le menu de navigation"
-        v-if="!$vuetify.breakpoint.mdAndUp"
         @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
+      />
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-if="!$vuetify.breakpoint.mdAndUp"
-      app
-      v-model="drawer"
-      floating
-    >
-      <NavItems></NavItems>
+    <v-navigation-drawer v-if="!mdAndUp" v-model="drawer" floating>
+      <NavItems />
     </v-navigation-drawer>
 
     <v-main>
       <v-container fluid style="max-width: 1300px" class="pa-8 mb-16">
-        <router-view></router-view>
+        <router-view />
       </v-container>
     </v-main>
 
-    <v-footer padless absolute color="primary">
+    <v-footer absolute color="primary">
       <v-col class="text-center" cols="12" md="6">
         © {{ new Date().getFullYear() }} — <strong>Antoine Steyer</strong>
       </v-col>
       <v-col class="text-center" cols="12" md="6">
-        Made with <a href="https://github.com/vuejs/vue">Vue</a> and
-        <a href="https://github.com/vuetifyjs/vuetify">Vuetify</a>
+        Made with
+        <a href="https://github.com/vuejs/vue" rel="noopener noreferrer">Vue</a>
+        and
+        <a href="https://github.com/vuetifyjs/vuetify" rel="noopener noreferrer">Vuetify</a>
       </v-col>
     </v-footer>
   </v-app>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
+import { useDisplay } from "vuetify";
 import NavItems from "@/components/header/NavItems.vue";
+import { useAppTheme } from "@/composables/useAppTheme";
 
-export default Vue.extend({
-  name: "App",
-  metaInfo: {
-    title: "Antoine Steyer"
-  },
-
-  components: {
-    NavItems
-  },
-
-  data: () => ({
-    drawer: false
-  })
-});
+const { mdAndUp } = useDisplay();
+const { isDark, toggle } = useAppTheme();
+const drawer = ref(false);
 </script>

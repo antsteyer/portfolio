@@ -1,90 +1,51 @@
 <template>
-  <div class="about">
+  <section class="contact">
     <h1>Ne nous perdons pas de vue ! 📫</h1>
 
     <p class="mt-10">
-      Si tu veux simplement me dire bonjour ou si tu as envie de travailler avec
-      moi, n'hésite pas à me laisser un petit mot par email ou sur l'un de mes
-      réseaux ci-dessous. Je serai ravi d'échanger avec toi !
+      Si tu veux simplement me dire bonjour ou si tu as envie de travailler
+      avec moi, n'hésite pas à me laisser un petit mot par email ou sur l'un
+      de mes réseaux ci-dessous. Je serai ravi d'échanger avec toi !
     </p>
+
     <v-card class="mt-10" width="fit-content">
       <v-card-text
-        class="d-flex flex-column flex-md-row flex-sm-column justify-center align-center"
+        class="d-flex flex-column flex-md-row justify-center align-center"
       >
-        <a v-for="link in links" :key="link.label" :href="link.link">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                text
-                :color="
-                  $vuetify.theme.dark && link.darkModeColor
-                    ? link.darkModeColor
-                    : link.color
-                "
-                :aria-label="'Accéder à ' + link.label"
-                v-bind="attrs"
-                v-on="on"
-              >
-                <v-icon left>{{ link.icon }}</v-icon>
-                {{ link.label }}
-              </v-btn>
-            </template>
-            <span>{{ link.funnyCatchPhrase }}</span>
-          </v-tooltip>
-        </a>
+        <v-tooltip
+          v-for="link in contactLinks"
+          :key="link.label"
+          location="bottom"
+          :text="link.funnyCatchPhrase"
+        >
+          <template #activator="{ props: activatorProps }">
+            <v-btn
+              v-bind="activatorProps"
+              variant="text"
+              :href="link.href"
+              :target="link.external ? '_blank' : undefined"
+              :rel="link.external ? 'noopener noreferrer' : undefined"
+              :color="colorFor(link)"
+              :aria-label="`Accéder à ${link.label}`"
+            >
+              <v-icon start :icon="link.icon" />
+              {{ link.label }}
+            </v-btn>
+          </template>
+        </v-tooltip>
       </v-card-text>
     </v-card>
-  </div>
+  </section>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
+import { useAppTheme } from "@/composables/useAppTheme";
+import { contactLinks } from "@/data/contactLinks";
+import type { ContactLink } from "@/types";
 
-interface ContactLink {
-  label: string;
-  icon: string;
-  color: string;
-  darkModeColor?: string;
-  link: string;
-  funnyCatchPhrase: string;
+const { isDark } = useAppTheme();
+
+function colorFor(link: ContactLink): string {
+  return isDark.value && link.darkModeColor ? link.darkModeColor : link.color;
 }
-
-export default Vue.extend({
-  name: "Contact",
-  components: {},
-  data: () => ({
-    links: [
-      {
-        label: "Email",
-        icon: "mdi-email",
-        color: "rgb(85, 34, 250)",
-        link: "mailto:antoine.steyer@hey.com",
-        funnyCatchPhrase: "Je lis mes mails quotidiennement"
-      },
-      {
-        label: "Twitter",
-        icon: "mdi-twitter",
-        color: "#1DA1F2",
-        link: "https://twitter.com/ant_steyer",
-        funnyCatchPhrase: "Je 'tweet' plus vite que mon ombre !"
-      },
-      {
-        label: "LinkedIn",
-        icon: "mdi-linkedin",
-        color: "#2867B2",
-        link: "https://www.linkedin.com/in/antsteyer/",
-        funnyCatchPhrase:
-          "Merci de ne pas m'envoyer de message préconçu sans âme ni personalisation"
-      },
-      {
-        label: "Github",
-        icon: "mdi-github",
-        color: "#24292e",
-        darkModeColor: "white",
-        link: "https://github.com/antsteyer",
-        funnyCatchPhrase: "Mon humble contribution à l'open-source"
-      }
-    ] as ContactLink[]
-  })
-});
 </script>

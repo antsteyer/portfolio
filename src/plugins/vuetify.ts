@@ -1,17 +1,21 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib/framework";
+import "vuetify/styles";
+import { createVuetify } from "vuetify";
 
-Vue.use(Vuetify);
-
-export default new Vuetify({
+export default createVuetify({
   theme: {
-    options: { customProperties: true },
+    defaultTheme: "light",
     themes: {
       light: {
-        primary: "#7FFFD4"
+        dark: false,
+        colors: {
+          primary: "#7FFFD4"
+        }
       },
       dark: {
-        primary: "#26946f"
+        dark: true,
+        colors: {
+          primary: "#26946f"
+        }
       }
     }
   }
