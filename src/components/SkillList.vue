@@ -1,7 +1,11 @@
 <template>
   <div class="skill-list my-5">
-    <div class="d-flex align-center justify-start">
-      <span>Filtrer par :</span>
+    <div
+      class="d-flex align-center justify-start"
+      role="group"
+      aria-labelledby="skill-filter-label"
+    >
+      <span id="skill-filter-label">Filtrer par :</span>
 
       <VChipGroup v-model="skillType" color="primary" selected-class="text-on-primary">
         <VChip
@@ -17,38 +21,43 @@
       </VChipGroup>
     </div>
 
-    <div class="mt-5 d-flex flex-wrap">
-      <VHover v-for="skill in filteredSkills" :key="skill.label">
-        <template #default="{ isHovering, props: hoverProps }">
-          <VProgressCircular
-            v-bind="hoverProps"
-            :size="120"
-            :width="8"
-            :model-value="skill.percent"
-            color="primary"
-            class="ma-6"
-          >
-            <div
-              v-if="!isHovering"
-              class="d-flex flex-column align-center text-center"
-              :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
+    <ul class="mt-5 d-flex flex-wrap skill-items">
+      <li v-for="skill in filteredSkills" :key="skill.label">
+        <VHover>
+          <template #default="{ isHovering, props: hoverProps }">
+            <VProgressCircular
+              v-bind="hoverProps"
+              :size="120"
+              :width="8"
+              :model-value="skill.percent"
+              color="primary"
+              class="ma-6"
+              :aria-label="`${skill.label}, niveau de maîtrise ${skill.percent}%`"
             >
-              <VIcon :icon="skill.icon" />
+              <div
+                v-if="!isHovering"
+                class="d-flex flex-column align-center text-center"
+                :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
+                aria-hidden="true"
+              >
+                <VIcon :icon="skill.icon" />
 
-              <span>{{ skill.label }}</span>
-            </div>
+                <span>{{ skill.label }}</span>
+              </div>
 
-            <span
-              v-else
-              class="font-weight-bold"
-              :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
-            >
-              {{ skill.percent }}%
-            </span>
-          </VProgressCircular>
-        </template>
-      </VHover>
-    </div>
+              <span
+                v-else
+                class="font-weight-bold"
+                :class="isDark ? 'skill-label-dark' : 'skill-label-light'"
+                aria-hidden="true"
+              >
+                {{ skill.percent }}%
+              </span>
+            </VProgressCircular>
+          </template>
+        </VHover>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -67,6 +76,11 @@ const filteredSkills = computed(() =>
 </script>
 
 <style scoped>
+.skill-items {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
 .skill-label-dark {
   color: white;
 }

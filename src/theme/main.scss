@@ -1,5 +1,43 @@
 @use "color" as *;
 
+// Skip link — visible uniquement quand focus
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease-in-out;
+
+  &:focus {
+    transform: translateY(0);
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Respect des préférences utilisateur de mouvement réduit
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Évite le contour de focus visible sur le wrapper VMain (rendu programmatiquement)
+#main-content:focus {
+  outline: none;
+}
+
 #app {
   // Liens dans l'application
   a {

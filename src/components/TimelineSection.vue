@@ -17,7 +17,7 @@
           />
         </template>
 
-        <VCardTitle class="text-h6 text-wrap">
+        <VCardTitle tag="h2" class="text-h6 text-wrap">
           {{ entry.label }}
         </VCardTitle>
 
@@ -54,7 +54,7 @@
       </template>
 
       <VCard class="elevation-2">
-        <VCardTitle class="text-h5">{{ entry.label }}</VCardTitle>
+        <VCardTitle tag="h2" class="text-h5">{{ entry.label }}</VCardTitle>
 
         <VCardSubtitle>
           <VIcon size="small" :icon="mdiMapMarker" />

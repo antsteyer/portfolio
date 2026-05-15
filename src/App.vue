@@ -1,7 +1,17 @@
 <template>
   <VApp id="app">
+    <a href="#main-content" class="skip-link"> Aller au contenu principal </a>
+
     <VAppBar elevate-on-scroll>
-      <VBtn id="app-title" variant="text" color="primary" to="/">ANT</VBtn>
+      <VBtn
+        id="app-title"
+        variant="text"
+        color="primary"
+        to="/"
+        aria-label="ANT, retour à l'accueil"
+      >
+        ANT
+      </VBtn>
 
       <VSpacer />
 
@@ -27,7 +37,7 @@
       <NavItems />
     </VNavigationDrawer>
 
-    <VMain>
+    <VMain id="main-content" tabindex="-1">
       <VContainer fluid style="max-width: 1300px" class="pa-8">
         <RouterView />
       </VContainer>
