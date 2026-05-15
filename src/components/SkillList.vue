@@ -28,7 +28,7 @@
           >
             <div
               v-if="!isHovering"
-              class="d-flex flex-column text-center"
+              class="d-flex flex-column align-center text-center"
               :class="isDark ? 'text-white' : 'text-black'"
             >
               <v-icon :icon="skill.icon" />
