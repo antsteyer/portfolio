@@ -30,6 +30,10 @@
     .v-timeline:before {
       left: calc(50% - 5px);
     }
+
+    .v-card-text ul {
+      padding-inline-start: 1.5rem;
+    }
   }
 
   // Skill list
