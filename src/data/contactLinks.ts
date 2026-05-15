@@ -1,4 +1,4 @@
-import type { ContactLink } from "@/types";
+import type { ContactLink } from "@/types"
 
 export const contactLinks: ContactLink[] = [
   {
@@ -21,8 +21,7 @@ export const contactLinks: ContactLink[] = [
     icon: "mdi-linkedin",
     color: "#2867B2",
     href: "https://www.linkedin.com/in/antsteyer/",
-    funnyCatchPhrase:
-      "Merci de ne pas m'envoyer de message préconçu sans âme ni personnalisation",
+    funnyCatchPhrase: "Merci de ne pas m'envoyer de message préconçu sans âme ni personnalisation",
     external: true
   },
   {
@@ -34,4 +33,4 @@ export const contactLinks: ContactLink[] = [
     funnyCatchPhrase: "Mon humble contribution à l'open-source",
     external: true
   }
-];
+]

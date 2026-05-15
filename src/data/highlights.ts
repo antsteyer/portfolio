@@ -1,4 +1,4 @@
-import type { Highlight } from "@/types";
+import type { Highlight } from "@/types"
 
 export const highlights: Highlight[] = [
   {
@@ -19,4 +19,4 @@ export const highlights: Highlight[] = [
     description:
       "dans la résolution de problèmes, je résiste à toutes les pressions (sauf celle que l'on boit)."
   }
-];
+]

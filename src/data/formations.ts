@@ -1,4 +1,4 @@
-import type { TimelineEntry } from "@/types";
+import type { TimelineEntry } from "@/types"
 
 export const formations: TimelineEntry[] = [
   {
@@ -23,4 +23,4 @@ export const formations: TimelineEntry[] = [
     description: "Mention Bien.",
     image: "/img/vaugelas.webp"
   }
-];
+]

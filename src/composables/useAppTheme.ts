@@ -1,18 +1,16 @@
-import { computed, watch } from "vue";
-import { useTheme } from "vuetify";
+import { computed, watch } from "vue"
+import { useTheme } from "vuetify"
 
-const STORAGE_KEY = "portfolio:theme";
-type ThemeName = "light" | "dark";
+const STORAGE_KEY = "portfolio:theme"
+type ThemeName = "light" | "dark"
 
-let initialized = false;
+let initialized = false
 
 function getPreferredTheme(): ThemeName {
-  if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(STORAGE_KEY) as ThemeName | null;
-  if (stored === "light" || stored === "dark") return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  if (typeof window === "undefined") return "light"
+  const stored = window.localStorage.getItem(STORAGE_KEY) as ThemeName | null
+  if (stored === "light" || stored === "dark") return stored
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
 }
 
 /**
@@ -21,26 +19,26 @@ function getPreferredTheme(): ThemeName {
  * from multiple components — initialization only happens once.
  */
 export function useAppTheme() {
-  const theme = useTheme();
+  const theme = useTheme()
 
   if (!initialized) {
-    theme.global.name.value = getPreferredTheme();
+    theme.global.name.value = getPreferredTheme()
     watch(
       () => theme.global.name.value,
       name => {
         if (typeof window !== "undefined") {
-          window.localStorage.setItem(STORAGE_KEY, name);
+          window.localStorage.setItem(STORAGE_KEY, name)
         }
       }
-    );
-    initialized = true;
+    )
+    initialized = true
   }
 
-  const isDark = computed(() => theme.global.current.value.dark);
+  const isDark = computed(() => theme.global.current.value.dark)
 
   function toggle() {
-    theme.global.name.value = isDark.value ? "light" : "dark";
+    theme.global.name.value = isDark.value ? "light" : "dark"
   }
 
-  return { isDark, toggle };
+  return { isDark, toggle }
 }
